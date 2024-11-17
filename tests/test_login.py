@@ -5,12 +5,13 @@ def test_login(page: Page):
     page.goto("https://4shared.com")
     page.get_by_role("button", name='Log in').click()
     login = page.locator("#login")
-    login.fill("vr11@i.ua'")
+    login.fill("")
     password = page.locator("#password")
-    password.fill("123456")
+    password.fill("")
     page.locator("div.signin-form button.big-button").click()
     page.locator('#iloginRejectReason').wait_for(state='visible')
     error = page.locator("#iloginRejectReason").inner_text()
+    page.screenshot(path="test_results/image.png")
     assert error == 'Invalid e-mail address or password'
 
 def test_related(playwright: Playwright):
