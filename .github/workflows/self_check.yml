@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: self-check
 on:
   push:
     branches: [ main, master ]
@@ -18,4 +18,5 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8
     - name: Run flake8
-      run: flake8 .
+      run:
+        flake8 .
